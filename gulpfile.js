@@ -33,10 +33,22 @@ function styles() {
 }
 
 function images() {
-  return src('src/img/**/*.{jpg,jpeg,png,svg,gif,webp}')
-    .pipe(dest('dist/img'))
-    .pipe(browserSync.stream());
+    return src('src/img/**/*.{jpg,jpeg,png,svg,gif,webp}')
+        .pipe(dest('dist/img'))
+        .pipe(browserSync.stream());
 }
+
+function fonts() {
+    return src('src/scss/_fonts.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(cleanCSS({ level: 2 }))
+        .pipe(rename({ basename: 'fonts', suffix: '.min' }))
+        .pipe(sourcemaps.write('.'))
+        .pipe(dest(paths.dist + '/css'))
+        .pipe(browserSync.stream());
+}
+
 
 
 
@@ -66,6 +78,6 @@ function serve() {
 }
 
 
-exports.build = series(clean, parallel(styles, copyHtml, copyJs, images));
-exports.dev = series(clean, parallel(styles, copyHtml, copyJs, images), serve);
+exports.build = series(clean, parallel(styles, copyHtml, copyJs, images, fonts));
+exports.dev = series(clean, parallel(styles, copyHtml, copyJs, images, fonts), serve);
 exports.default = exports.dev;
