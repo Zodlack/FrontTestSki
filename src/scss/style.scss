@@ -133,6 +133,7 @@ body {
         display: flex;
         gap: 16px;
         align-items: center;
+        margin-bottom: 24px;
 
         input,
         select {
@@ -188,6 +189,12 @@ body {
     }
 
     &__table {
+      border-collapse: collapse;
+        &-label{
+           text-align: left;
+           background-color:#F0F0F7;
+           height: 56px;
+        }
         tbody {
             tr {
                 position: relative;
