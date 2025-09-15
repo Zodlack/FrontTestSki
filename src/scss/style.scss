@@ -1,0 +1,312 @@
+@import 'variables';
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: $white;
+}
+
+.container {
+    width: 1548px;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: #0E0E10;
+    height: 372px;
+    width: 100%;
+
+    &__nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 48px;
+    }
+
+    &__contact {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-end;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+
+        li {
+            a {
+                color: $grey;
+                text-decoration: none;
+                font-size: 14px;
+                line-height: 1.3;
+                font-weight: 700;
+            }
+        }
+    }
+
+
+    &__subtitle {
+        h1 {
+            color: $white;
+            font-size: 60px;
+            line-height: 1.1;
+            font-weight: 700;
+        }
+    }
+
+}
+
+
+.control {
+    margin: 96px 0;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        background-color: $whiteTable;
+        padding: 24px 24px;
+        width: 100%;
+        border-radius: 16px;
+    }
+
+    &__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__title {
+        h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: $title;
+            line-height: 1.2;
+        }
+    }
+
+    &__search {
+        display: flex;
+        gap: 10px;
+        position: relative;
+
+        input {
+            z-index: 1;
+            width: 300px;
+            height: 56px;
+            border-radius: 10px;
+            border: 1px solid $border;
+            padding-left: 24px;
+            padding-right: 24px;
+            outline: none;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.3;
+            color: $grey;
+
+        }
+
+        button {
+            background-color: $buttonBg;
+            height: 56px;
+            width: 147px;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            color: $titleButton;
+            font-weight: 400;
+            font-size: 16px;
+
+            &:nth-child(3) {
+                position: absolute;
+                z-index: 2;
+                left: 50%;
+                padding-right: 24px;
+                background: transparent;
+            }
+        }
+
+    }
+
+    &__filter {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+
+        input,
+        select {
+            width: 517px;
+            height: 56px;
+            border: none;
+            border-radius: 10px;
+            border: 1px solid $border;
+            cursor: pointer;
+        }
+    }
+
+    &__region {
+        &-name {
+            display: flex;
+            gap: 10px;
+            width: 439px;
+            justify-content: flex-start;
+        }
+    }
+
+    &__scool {
+        &-name {
+            // display: flex;
+            width: 439px;
+        }
+    }
+
+
+    &__address {
+        // display: flex;
+        width: 439px;
+    }
+
+    &__education {
+        &-level {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            width: 256px;
+
+            span {
+                border: 1px solid #0E0E101A;
+                border-radius: 8px;
+                padding: 4px 6px;
+                font-size: 14px;
+                line-height: 1.3;
+                font-weight: 400;
+                color: $titleButton;
+            }
+        }
+
+    }
+
+    &__table {
+        tbody {
+            tr {
+                position: relative;
+
+                p {
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 1.3;
+                    color: $titleButton;
+                }
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    border-bottom: 1px solid #ccc;
+                    width: 100%;
+                    bottom: -6px;
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    &__footer {
+        margin-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__pagination{
+        display: flex;
+        align-items: center;
+    }
+
+    &__navigation{
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        span#pageInfo{
+            color: $colorRecordText;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 1.3;
+        }
+        &-range{
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            p{
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 1.3;
+                color: $colorRecordText;
+            }
+            select{
+                width: 73px;
+                height: 36px;
+                border: 1px solid $border;
+                border-radius:8px;
+                cursor: pointer;
+                color: $titleButton;
+                font-size: 12px;
+                line-height: 1.3;
+                font-weight: 400;
+            }
+        }
+    }
+
+    &__button {
+
+        &-prev,
+        &-next {
+            width: 44px;
+            height: 36px;
+            background: transparent;
+            border: 1px solid $border;
+            outline: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover{
+                background-color:$buttonBg;
+            }
+            &.disabled{
+                &:hover{
+                    background-color: transparent;
+                }
+            }
+        }
+
+        &-prev{
+            margin-right: 24px;
+        }
+
+        &-next{
+            margin-left: 24px;
+        }
+
+        &-page {
+            background: transparent;
+            border: none;
+            outline: none;
+            width: 40px;
+            height: 36px;
+            border-radius: 8px;
+            cursor: pointer;
+            line-height: 1.3;
+            font-weight: 400;
+            color: $titleButton;
+            font-size: 12px;
+            &:hover{
+                background-color:$buttonPage;
+            }
+            &.active{
+                background-color:$buttonPage;
+            }
+        }
+    }
+}
